@@ -14,9 +14,7 @@ const AuthCardLayout: FC<PropsWithChildren> = ({children}) => {
                 }
             }}
         >
-            <CardContent>
-                <Box sx={{p: {xs: 2, sm: 3, xl: 5}}}>{children}</Box>
-            </CardContent>
+            <Box sx={{p: {xs: 2, sm: 3, xl: 5}}}>{children}</Box>
         </Card>
     )
 }
