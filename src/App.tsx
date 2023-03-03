@@ -3,19 +3,19 @@ import {Provider} from "react-redux";
 import store from "./store/store";
 import {CssBaseline, StyledEngineProvider, ThemeProvider} from "@mui/material";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import NavigationScroll from "./layouts/navigationScroll/navigationScroll";
 import theme from "./themes/theme";
 
-const Login = lazy(() => import('./pages/auth/login/login'))
+const Login = lazy(() => import('./pages/auth/login'))
+const Registration = lazy(() => import('./pages/auth/registration'))
 
 const router = createBrowserRouter([
     {
         path: "/login",
-        element: <Login/>,
+        element: <React.Suspense fallback={<>...</>}><Login/></React.Suspense>,
     },
     {
         path: "/registration",
-        element: <Login/>,
+        element: <React.Suspense fallback={<>...</>}><Registration/></React.Suspense>,
     },
     {
         path: "/dashboard",
