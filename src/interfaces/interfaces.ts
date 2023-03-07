@@ -1,7 +1,7 @@
-export interface ApiResponse<R = any, E = any> {
+export interface ApiResponse<R = any> {
     success: boolean,
     result: R
-    error: E
+    error: string
 }
 
 export interface ITokens {

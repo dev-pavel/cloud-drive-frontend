@@ -16,7 +16,7 @@ interface IRegData {
 
 const authApi = createApi({
     reducerPath: 'authApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://localhost:5000/api/auth/'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000/api/auth/'}),
     endpoints: (builder) => ({
         login: builder.mutation<ApiResponse<ITokens>, ILoginData>({
             query: (data) => ({
