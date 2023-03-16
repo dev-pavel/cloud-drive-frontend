@@ -64,7 +64,7 @@ const Login: FC = () => {
 
     useEffect(() => {
         if (isAuth) {
-            navigation('/dashboard');
+            navigation('/main');
         }
     }, [isAuth])
 

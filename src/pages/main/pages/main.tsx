@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {Grid} from "@mui/material";
 
-const Dashboard: FC = () => {
+const Main: FC = () => {
 
     return (
         <Grid>
@@ -10,4 +10,4 @@ const Dashboard: FC = () => {
     )
 }
 
-export default Dashboard;
+export default Main;

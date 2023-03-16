@@ -1,14 +1,12 @@
-import React, {FC, lazy, Suspense, useEffect} from "react";
+import React, {FC, Suspense, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {CssBaseline, StyledEngineProvider, ThemeProvider} from "@mui/material";
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import theme from "./themes/theme";
-import ProtectedRoute from "./components/protectedRoute/protectedRoute";
 import {checkAuth} from "./store/slices/auth";
 import Loading from "./components/loading/loading";
 import AuthRouter from "./pages/auth/authRouter";
-
-const Dashboard = lazy(() => import('./pages/dashboard/dashboard'));
+import MainRouter from "./pages/main/mainRouter";
 
 const router = createBrowserRouter([
         {
@@ -16,12 +14,12 @@ const router = createBrowserRouter([
             children: AuthRouter
         },
         {
-            path: "/dashboard",
-            element: <ProtectedRoute><Dashboard/></ProtectedRoute>,
+            path: "/main",
+            children: MainRouter
         },
         {
             path: '*',
-            element: <Navigate to="/dashboard"/>
+            element: <Navigate to="/main"/>
         }
     ])
 ;

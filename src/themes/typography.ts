@@ -1,4 +1,5 @@
 export default function themeTypography(theme: any) {
+    console.log(theme)
     return {
         fontFamily: 'Roboto',
         h6: {
@@ -82,14 +83,16 @@ export default function themeTypography(theme: any) {
             }
         },
         mainContent: {
+            float: 'right',
             backgroundColor: theme.background,
             width: '100%',
             minHeight: 'calc(100vh - 88px)',
             flexGrow: 1,
             padding: '20px',
-            marginTop: '88px',
-            marginRight: '20px',
-            borderRadius: `${theme?.customization?.borderRadius}px`
+            margin: '88px 20px auto 20px',
+            // marginTop: '88px',
+            // marginRight: '20px',
+            borderRadius: `${theme.borderRadius}px`
         },
         menuCaption: {
             fontSize: '0.875rem',
@@ -130,9 +133,11 @@ export default function themeTypography(theme: any) {
 declare module "@mui/material/styles" {
     interface TypographyVariants {
         customInput: React.CSSProperties;
+        commonAvatar: React.CSSProperties;
+        mediumAvatar: React.CSSProperties;
+        mainContent: React.CSSProperties;
     }
 
-    // allow configuration using `createTheme`
     interface TypographyVariantsOptions {
         customInput?: React.CSSProperties;
     }

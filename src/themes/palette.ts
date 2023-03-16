@@ -1,3 +1,5 @@
+import {Palette as MUIPalette} from "@mui/material";
+
 export default function themePalette(theme: any) {
     return {
         // mode: theme?.customization?.navType,
@@ -65,4 +67,19 @@ export default function themePalette(theme: any) {
             default: theme.backgroundDefault
         }
     };
+}
+
+declare module "@mui/material/styles" {
+    interface Palette {
+        // @ts-ignore
+        orange: MUIPalette['orange']
+        // @ts-ignore
+        primary: {
+            light: string
+            main: string
+            dark: string
+            200: string
+            800: string
+        }
+    }
 }
