@@ -2,7 +2,7 @@ import {lazy} from "react";
 import {Navigate, RouteObject} from "react-router-dom";
 import MainLayout from "./layout/layout";
 
-const Main = lazy(() => import('./pages/main'));
+const Main = lazy(() => import('./pages/main/main'));
 
 const MainRouter: RouteObject[] = [
     {

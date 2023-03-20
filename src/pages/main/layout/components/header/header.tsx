@@ -4,8 +4,9 @@ import {Link} from "react-router-dom";
 import {IconMenu2} from '@tabler/icons-react';
 import Search from "./components/search";
 import Profile from "./components/profle";
+import Logo from "../../../../../assets/images/logo.svg"
 
-const Header: FC = () => {
+const Header: FC<any> = ({handleLeftDrawerToggle}) => {
     const theme = useTheme();
 
     return (
@@ -19,14 +20,14 @@ const Header: FC = () => {
                     }
                 }}
             >
-                <Box component="span" sx={{display: {xs: 'none', md: 'block'}, flexGrow: 1}}>
+                <Box component="span" sx={{display: {xs: 'none', md: 'flex', alignItems: 'center'}, flexGrow: 1}}>
                     <ButtonBase
                         disableRipple
                         // onClick={() => dispatch({type: MENU_OPEN, id: defaultId})}
                         component={Link}
                         to={''}
                     >
-                        {/*<Logo/>*/}
+                        <img style={{height: 30}} src={Logo} alt="logo"/>
                     </ButtonBase>
                 </Box>
                 <ButtonBase sx={{borderRadius: '12px', overflow: 'hidden'}}>
@@ -43,7 +44,7 @@ const Header: FC = () => {
                                 color: theme.palette.secondary.light
                             }
                         }}
-                        // onClick={handleLeftDrawerToggle}
+                        onClick={handleLeftDrawerToggle}
                         color="inherit"
                     >
                         <IconMenu2

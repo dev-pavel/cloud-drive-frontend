@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {Outlet} from "react-router-dom";
 import {AppBar, Box, CssBaseline, styled, Toolbar, useTheme} from "@mui/material";
 import Header from "./components/header/header";
@@ -15,31 +15,24 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})(({th
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen
         }),
-        [theme.breakpoints.up('md')]: {
-            marginLeft: -(drawerWidth - 20),
-            width: `calc(100% - ${drawerWidth}px)`
-        },
         [theme.breakpoints.down('md')]: {
             marginLeft: '20px',
-            width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px'
         },
         [theme.breakpoints.down('sm')]: {
             marginLeft: '10px',
-            width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px',
             marginRight: '10px'
         }
     }),
     ...(open && {
-        transition: theme.transitions.create('margin', {
+        transition: theme.transitions.create('all', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen
         }),
-        marginLeft: 0,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
-        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: `${drawerWidth}px`,
         [theme.breakpoints.down('md')]: {
             marginLeft: '20px'
         },
@@ -51,6 +44,11 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})(({th
 
 const MainLayout: FC = () => {
     const theme = useTheme();
+    const [openSidebar, setOpenSidebar] = useState(false)
+
+    const handleLeftDrawerToggle = () => {
+        setOpenSidebar(value => !value)
+    }
 
     return (
         <Box>
@@ -62,20 +60,21 @@ const MainLayout: FC = () => {
                 elevation={0}
                 sx={{
                     bgcolor: theme.palette.background.default,
-                    // transition: leftDrawerOpened ? theme.transitions.create('width') : 'none'
+                    transition: openSidebar ? theme.transitions.create('all') : 'none'
                 }}
             >
                 <Toolbar>
-                    <Header/>
-                    {/*<Header handleLeftDrawerToggle={handleLeftDrawerToggle} />*/}
+                    <Header handleLeftDrawerToggle={handleLeftDrawerToggle}/>
                 </Toolbar>
             </AppBar>
-            <Sidebar/>
+            <Sidebar
+                drawerToggle={handleLeftDrawerToggle}
+                drawerOpen={openSidebar}
+            />
             <Main
                 theme={theme}
-                // open={leftDrawerOpened}
                 // @ts-ignore
-                open={true}
+                open={openSidebar}
             >
                 <Outlet/>
             </Main>

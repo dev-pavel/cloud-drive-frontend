@@ -83,15 +83,11 @@ export default function themeTypography(theme: any) {
             }
         },
         mainContent: {
-            float: 'right',
             backgroundColor: theme.background,
-            width: '100%',
             minHeight: 'calc(100vh - 88px)',
             flexGrow: 1,
             padding: '20px',
-            margin: '88px 20px auto 20px',
-            // marginTop: '88px',
-            // marginRight: '20px',
+            margin: '88px 20px 0 20px',
             borderRadius: `${theme.borderRadius}px`
         },
         menuCaption: {
@@ -136,6 +132,7 @@ declare module "@mui/material/styles" {
         commonAvatar: React.CSSProperties;
         mediumAvatar: React.CSSProperties;
         mainContent: React.CSSProperties;
+        menuCaption: React.CSSProperties;
     }
 
     interface TypographyVariantsOptions {

@@ -1,42 +1,7 @@
 import React, {FC} from "react";
 import {Box, Drawer as MUIDrawer, useMediaQuery, useTheme} from "@mui/material";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import {BrowserView, MobileView} from 'react-device-detect';
 import {drawerWidth} from "../../../../../store/constants/constatns";
-
-const Drawer: FC = () => {
-    const theme = useTheme();
-    const matchUpMd = useMediaQuery(theme.breakpoints.up('md'));
-
-    return (
-        <>
-            <Box sx={{display: {xs: 'block', md: 'none'}}}>
-                <Box sx={{display: 'flex', p: 2, mx: 'auto'}}>
-                    {/*<LogoSection />*/}
-                </Box>
-            </Box>
-            <BrowserView>
-                <PerfectScrollbar
-                    component="div"
-                    style={{
-                        height: !matchUpMd ? 'calc(100vh - 56px)' : 'calc(100vh - 88px)',
-                        paddingLeft: '16px',
-                        paddingRight: '16px'
-                    }}
-                >
-                    {/*<MenuList />*/}
-                    {/*<MenuCard />*/}
-                </PerfectScrollbar>
-            </BrowserView>
-            <MobileView>
-                <Box sx={{px: 2}}>
-                    {/*<MenuList />*/}
-                    {/*<MenuCard />*/}
-                </Box>
-            </MobileView>
-        </>
-    )
-}
+import Drawer from "./components/drawer";
 
 const Sidebar: FC<any> = ({drawerOpen, drawerToggle, window}) => {
     const theme = useTheme();
