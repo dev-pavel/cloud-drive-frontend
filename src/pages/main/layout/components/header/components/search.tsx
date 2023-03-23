@@ -14,6 +14,7 @@ import React, {FC, useState} from "react";
 import {IconAdjustmentsHorizontal, IconSearch, IconX} from "@tabler/icons-react";
 import Transition from "../../../../../../components/transition/transition";
 import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
+import SearchIcon from '@mui/icons-material/Search';
 
 const PopperStyle = styled(Popper)(({theme}) => ({
     zIndex: 1100,
@@ -73,7 +74,8 @@ const MobileSearch: FC<any> = ({value, setValue, popupState}) => {
                 <InputAdornment position="end">
                     <ButtonBase sx={{borderRadius: '12px'}}>
                         <HeaderAvatarStyle variant="rounded">
-                            <IconAdjustmentsHorizontal stroke={1.5} size="1.3rem"/>
+                            <SearchIcon />
+                            {/*<IconAdjustmentsHorizontal stroke={1.5} size="1.3rem"/>*/}
                         </HeaderAvatarStyle>
                     </ButtonBase>
                     <Box sx={{ml: 2}}>
@@ -161,16 +163,18 @@ const Search: FC = () => {
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     placeholder="Search"
-                    startAdornment={
-                        <InputAdornment position="start">
-                            <IconSearch stroke={1.5} size="1rem" color={theme.palette.grey[500]}/>
-                        </InputAdornment>
-                    }
+                    // startAdornment={
+                    //     <InputAdornment position="start">
+                    //         <SearchIcon />
+                    //         {/*<IconSearch stroke={1.5} size="1rem" color={theme.palette.grey[500]}/>*/}
+                    //     </InputAdornment>
+                    // }
                     endAdornment={
                         <InputAdornment position="end">
                             <ButtonBase sx={{borderRadius: '12px'}}>
                                 <HeaderAvatarStyle variant="rounded">
-                                    <IconAdjustmentsHorizontal stroke={1.5} size="1.3rem"/>
+                                    <SearchIcon />
+                                    {/*<IconAdjustmentsHorizontal stroke={1.5} size="1.3rem"/>*/}
                                 </HeaderAvatarStyle>
                             </ButtonBase>
                         </InputAdornment>

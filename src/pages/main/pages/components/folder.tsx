@@ -1,10 +1,13 @@
-import React from "react";
-import {useTheme, styled} from '@mui/material/styles';
-import {Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material';
-import Card from "../../../../../components/card/card";
-import DescriptionIcon from '@mui/icons-material/Description';
+import React from 'react';
+import {Avatar, Box, Grid, List, ListItem, ListItemAvatar, ListItemText, Typography} from "@mui/material";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import FolderIcon from '@mui/icons-material/Folder';
+import {styled, useTheme} from "@mui/material/styles";
+import Card from "../../../../components/card/card";
 
 const CardWrapper = styled(Card)(({theme}) => ({
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.primary.light,
     overflow: 'hidden',
     position: 'relative',
     '&:after': {
@@ -12,7 +15,7 @@ const CardWrapper = styled(Card)(({theme}) => ({
         position: 'absolute',
         width: 210,
         height: 210,
-        background: `linear-gradient(210.04deg, ${theme.palette.warning.dark} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
+        background: `linear-gradient(210.04deg, ${theme.palette.primary[200]} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
         borderRadius: '50%',
         top: -30,
         right: -180
@@ -22,21 +25,18 @@ const CardWrapper = styled(Card)(({theme}) => ({
         position: 'absolute',
         width: 210,
         height: 210,
-        background: `linear-gradient(140.9deg, ${theme.palette.warning.dark} -14.02%, rgba(144, 202, 249, 0) 70.50%)`,
+        background: `linear-gradient(140.9deg, ${theme.palette.primary[200]} -14.02%, rgba(144, 202, 249, 0) 77.58%)`,
         borderRadius: '50%',
         top: -160,
         right: -130
     }
 }));
 
-const TotalUsersFiles = () => {
+const Folder = () => {
     const theme = useTheme();
 
     return (
-        <>
-            {/*{isLoading ? (*/}
-            {/*    <TotalIncomeCard />*/}
-            {/*) : (*/}
+        <Grid item xs={12} sm={6} md={4} lg={3}>
             <CardWrapper border={false} content={false}>
                 <Box sx={{p: 2}}>
                     <List sx={{py: 0}}>
@@ -48,11 +48,12 @@ const TotalUsersFiles = () => {
                                         ...theme.typography.commonAvatar,
                                         //@ts-ignore
                                         ...theme.typography.largeAvatar,
-                                        backgroundColor: theme.palette.warning.light,
-                                        color: theme.palette.warning.dark
+                                        //@ts-ignore
+                                        backgroundColor: theme.palette.primary[800],
+                                        color: '#fff'
                                     }}
                                 >
-                                    <DescriptionIcon/>
+                                    <FolderIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText
@@ -61,16 +62,9 @@ const TotalUsersFiles = () => {
                                     mt: 0.45,
                                     mb: 0.45
                                 }}
-                                primary={<Typography variant="h4">$203k</Typography>}
-                                secondary={
-                                    <Typography
-                                        variant="subtitle2"
-                                        sx={{
-                                            color: theme.palette.grey[500],
-                                            mt: 0.5
-                                        }}
-                                    >
-                                        Total Income
+                                primary={
+                                    <Typography variant="h4" sx={{color: '#fff'}}>
+                                        Folder Name
                                     </Typography>
                                 }
                             />
@@ -78,9 +72,8 @@ const TotalUsersFiles = () => {
                     </List>
                 </Box>
             </CardWrapper>
-            {/*)}*/}
-        </>
+        </Grid>
     );
 };
 
-export default TotalUsersFiles
+export default Folder;

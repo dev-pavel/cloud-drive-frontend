@@ -5,6 +5,8 @@ import TotalFiles from "./components/totalFiles";
 import TotalFileSize from "./components/totalFileSize";
 import TotalUsers from "./components/totalUsers";
 import TotalUsersFiles from "./components/totalUsersFiles";
+import Folders from "./components/folders";
+import Files from "./components/files";
 
 
 const Main: FC = () => {
@@ -29,6 +31,8 @@ const Main: FC = () => {
                             </Grid>
                         </Grid>
                     </Grid>
+                    <Folders/>
+                    <Files/>
                 </Grid>
             </Grid>
         </Grid>

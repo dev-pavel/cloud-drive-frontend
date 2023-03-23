@@ -1,8 +1,8 @@
-import React from "react";
-import {useTheme, styled} from '@mui/material/styles';
-import {Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material';
-import Card from "../../../../../components/card/card";
-import DescriptionIcon from '@mui/icons-material/Description';
+import React from 'react';
+import {Avatar, Box, Grid, List, ListItem, ListItemAvatar, ListItemText, Typography} from "@mui/material";
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import {styled, useTheme} from "@mui/material/styles";
+import Card from "../../../../components/card/card";
 
 const CardWrapper = styled(Card)(({theme}) => ({
     overflow: 'hidden',
@@ -29,14 +29,11 @@ const CardWrapper = styled(Card)(({theme}) => ({
     }
 }));
 
-const TotalUsersFiles = () => {
+const File = () => {
     const theme = useTheme();
 
     return (
-        <>
-            {/*{isLoading ? (*/}
-            {/*    <TotalIncomeCard />*/}
-            {/*) : (*/}
+        <Grid item xs={12} sm={6} md={4} lg={3}>
             <CardWrapper border={false} content={false}>
                 <Box sx={{p: 2}}>
                     <List sx={{py: 0}}>
@@ -52,7 +49,7 @@ const TotalUsersFiles = () => {
                                         color: theme.palette.warning.dark
                                     }}
                                 >
-                                    <DescriptionIcon/>
+                                    <InsertDriveFileIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText
@@ -61,16 +58,9 @@ const TotalUsersFiles = () => {
                                     mt: 0.45,
                                     mb: 0.45
                                 }}
-                                primary={<Typography variant="h4">$203k</Typography>}
-                                secondary={
-                                    <Typography
-                                        variant="subtitle2"
-                                        sx={{
-                                            color: theme.palette.grey[500],
-                                            mt: 0.5
-                                        }}
-                                    >
-                                        Total Income
+                                primary={
+                                    <Typography variant="h4">
+                                        file_name.pdf
                                     </Typography>
                                 }
                             />
@@ -78,9 +68,8 @@ const TotalUsersFiles = () => {
                     </List>
                 </Box>
             </CardWrapper>
-            {/*)}*/}
-        </>
+        </Grid>
     );
 };
 
-export default TotalUsersFiles
+export default File;

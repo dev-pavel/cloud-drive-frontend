@@ -1,7 +1,6 @@
 import React from "react";
 import {styled, useTheme} from '@mui/material/styles';
 import {Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material';
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import Card from "../../../../../components/card/card";
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
